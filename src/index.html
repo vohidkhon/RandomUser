@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User</title>
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="border rounded-md m-8 w-6/12 p-8">
+            <div class="p-8 flex justify-center border-b">
+                <div class="" v-for="value in info">
+                    <img class="rounded-full" :src="value.picture.medium" width="150" height="100">
+                </div>
+            </div><br>
+                <div class="text-center">
+                    <p v-show="textState" class="text-slate-400 text-xl">Hi, My name is</p>
+                    <p v-show="textState1" class="text-slate-400 text-xl">My email address is</p>
+                    <p v-show="textState2" class="text-slate-400 text-xl">My birthday is</p>
+                    <p v-show="textState3" class="text-slate-400 text-xl">My address is</p>
+                    <p v-show="textState4" class="text-slate-400 text-xl">My phone number is</p>
+                    <div v-for="value in info">
+                        <h1 v-show="textState" class="text-3xl font-semibold">{{value.name.first}} {{value.name.last}}</h1>
+                        <h1 v-show="textState1" class="text-3xl font-semibold">{{value.email}}</h1>
+                        <h1 v-show="textState2" class="text-3xl font-semibold">{{value.dob.date}}</h1>
+                        <h1 v-show="textState3" class="text-3xl font-semibold">{{value.location.street.number}} {{value.location.city}} {{value.location.state}}</h1>
+                        <h1 v-show="textState4" class="text-3xl font-semibold">{{value.phone}}</h1>
+                    </div>
+                </div><br>
+            <div class="flex justify-center">
+                <img @mouseover="textState = true; textState1 = false; textState2 = false;textState3 = false;textState4 = false;" class="" src="/image/man.png" alt="">
+                <img @mouseover="textState1 = true; textState = false; textState2 = false;textState3 = false;textState4 = false;" class="ml-16" src="/image/email.PNG" alt="">
+                <img @mouseover="textState2 = true; textState1 = false; textState = false;textState3 = false;textState4 = false;" class="ml-16" src="/image/data.PNG" alt="">
+                <img @mouseover="textState3 = true; textState1 = false; textState2 = false;textState = false;textState4 = false;" class="ml-16" src="/image/address.PNG" alt="">
+                <img @mouseover="textState4 = true; textState1 = false; textState2 = false;textState3 = false;textState = false;" class="ml-16" src="/image/tel.PNG" alt="">
+            </div><br><br>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
